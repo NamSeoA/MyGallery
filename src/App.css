@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,77 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/* Nav */
+.nav {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-title{
+  width:10%;
+  height: auto;
+}
+
+.nav-menu{
+  width: 30%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-menus{
+  display: flex;
+  align-items: center;
+}
+
+/* Main */
+/* 공통  */
+.main-block{
+  width:100%;
+  height:auto;
+}
+
+.main-video{
+  width: 90%;
+  height: 100%;
+  margin: 0px auto;
+  padding: 40% 6% 0px;
+  background-color: #ffd6d6;
+}
+
+.main-content01{
+  width:70%;
+  /* width: 1000px; */
+  height: 500px;
+  margin: 0 auto;
+  background-color: #d7d4d4;
+}
+
+.main-content01-cate{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 2%;
+}
+
+.main-content01-pic{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 150px;
+  grid-gap: 40px;
+  padding: 20px;
+  justify-items: center;
+  margin-top: 50px;
+}
+
+.main-pictures{
+  width:90%;
+  height: 150px;
+  background-color: black;
 }
