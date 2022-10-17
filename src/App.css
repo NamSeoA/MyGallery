@@ -1,5 +1,21 @@
 *{
   box-sizing: border-box;
+  margin: 0;
+  /* background-color: #1c1c1c; */
+}
+
+body{
+  background-color: #1c1c1c;
+}
+
+@font-face {
+  font-family: "Roboto_regular";
+  src: url("./font/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Roboto_light";
+  src: url("./font/Roboto-Light.ttf");
 }
 
 .App {
@@ -45,18 +61,39 @@
 /* Nav */
 .nav {
   width: 100%;
-  height: auto;
+  height: 8vh;
+  font-family: "Roboto_light";
   display: flex;
   justify-content: space-around;
+  position: sticky;
+  top:0;
+  left: 0;
+  right: 0;
+  background-color: #1c1c1c;
+}
+
+.nav-center{
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .nav-title{
-  width:10%;
+  width:15vh;
   height: auto;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.nav-title img{
+  width:100%;
 }
 
 .nav-menu{
-  width: 30%;
+  width: 30vh;
   height: auto;
   display: flex;
   justify-content: space-between;
@@ -65,21 +102,67 @@
 .nav-menus{
   display: flex;
   align-items: center;
+  color: #fff;
 }
 
 /* Main */
+.main-block-top{
+  width:100%;
+  height:92vh;
+}
+
+.main-title{
+  /* width: 1200px; */
+  width: 70vw;
+  height: 40%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-title-1{
+  font-family: "Roboto_regular";
+  font-size : 5vw;
+  line-height: 1.99;
+  color: #fff;
+}
+
+.main-title-2{
+  font-family: "Roboto_regular";
+  font-size: 1.6vw;
+  line-height: 1;
+  color: #fff;
+}
+
+.main-video{
+  width: 100vw;
+  height: 50%;
+  /* margin: 0px auto;
+  padding: 40% 6% 0px; */
+  /* background-color: #ffd6d6; */
+  background-image: url('./img/IMG_5405.jpg');
+  background-size: cover;
+}
+
+.main-line{
+  width: 100vw;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-line-hr{
+  border : 0px;
+  border-top: 5px solid #f3f3f3;
+}
+
 /* 공통  */
 .main-block{
   width:100%;
   height:auto;
-}
-
-.main-video{
-  width: 90%;
-  height: 100%;
-  margin: 0px auto;
-  padding: 40% 6% 0px;
-  background-color: #ffd6d6;
 }
 
 .main-content01{
@@ -112,4 +195,23 @@
   width:90%;
   height: 150px;
   background-color: black;
+}
+
+svg{
+  fill : none;
+  width: 100px;
+  stroke-width: 1px;
+}
+
+
+path{
+  stroke: #000;
+  stroke-dasharray: 47;
+  stroke-dashoffset: 47;
+  animation: path 1000ms forwards;
+  /* infinite */
+}
+
+@keyframes path{
+  100% {stroke-dashoffset: 0;}
 }
