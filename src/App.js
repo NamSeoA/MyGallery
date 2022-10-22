@@ -4,16 +4,33 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Nav from './component/Nav';
 import Loading from './component/Loading';
+import ScrollOut from "scroll-out";
 
 function App() {
   const [ready, setReady] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-        setReady(false);
-    }, 2000);
+  // useEffect(() => {
+  //   // window.onbeforeunload = function pushRefresh() {
+  //   //   window.scrollTo(0, 0);
+  //   // };
+  //   return() => {
+  //     window.onbeforeunload = function () {
+  //       window.scrollTo(0, 0);
+  //   }
+  //   }
+  // });
 
-  }, []);
+  useEffect(()=>{
+
+    setTimeout(() => {
+      setReady(false);
+  }, 3000);
+
+  }, [])
+
+  ScrollOut({
+    /* options */
+  });
 
   return (
     <>
@@ -22,22 +39,22 @@ function App() {
     <Nav />
     
     {/* top */}
-    <div className='main-block-top'>
-      <div className='main-title'>
-        <p className='main-title-1'>AT THIS MOMENT.</p>
-        <p className='main-title-2'>Moments that pass by casually in a busy life, joyous and beautiful times, or inspired moments.<br/>
+    <div className='main-block-top' >
+      <div className='main-title' data-scroll>
+        <p className='main-title-1' data-scroll>AT THIS MOMENT.</p>
+        <p className='main-title-2' data-scroll>Moments that pass by casually in a busy life, joyous and beautiful times, or inspired moments.<br/>
         I don't want that moments to be forgotten. That's why I left them in the film.</p>
       </div>
-      <div className='main-video'>
+      <div className='main-video' data-scroll>
         
       </div>
-      <div className='main-line'>
+      <div className='main-line' data-scroll>
         <hr className='main-line-hr' />
       </div>
     </div>
     
     {/* middle */}
-    <div className='main-block-middle'>
+    <div className='main-block-middle' data-scroll>
       <div className='main-content01'>
         {/* 카테고리 */}
         <div className='main-content01-cate'>
@@ -73,7 +90,7 @@ function App() {
     </div>
 
     {/* bottom */}
-    <div className='main-block'>
+    <div className='main-block' data-scroll>
       <div className='main-content01'>
 
       </div>
