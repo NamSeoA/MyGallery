@@ -76,18 +76,19 @@ function App() {
           {/* 사진 */}
           <div className='main-content01-pic'>
 
-            {
+            {/* {
               cate.map(function(a, i){
-                
                 return <Viewphoto photo={photo} cate={cate} i={i} key={i} />
               })
-            }
+            } */}
+
+            <ViewPhotoContainer photo={photo} cate={cate} />
 
           </div>
 
           {/* 더보기 */}
           <div className='main-content01-more'>
-            <div>see more ></div>
+            <div>see more</div>
           </div>
         </div>
         {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 1">
@@ -109,7 +110,7 @@ function App() {
         </>
       } />
       <Route path='/about' element={<About/>} />
-      <Route path='/photos' element={<Photos/>} />
+      <Route path='/photos' element={<Photos cate={cate}/>} />
       <Route path='/seen' element={<Seen/>} />
     </Routes>
 
@@ -118,53 +119,23 @@ function App() {
 }
 
 
-/**
- * 동적 카테고리 탭
- * @param {photo, cate, i}  
- * @returns 
- * img 
- */
-function Viewphoto({photo, cate, i}){
+const ViewPhotoContainer = ({photo, cate}) => {
 
-  let photo_result;
-  let add;
+  const photo_result = photoData[`${photo}`];
 
-  // const handleMouseOver = useCallback((e) => {
-    
-  //   if(e.currentTarget === e.target){
-  //     e.target.classList.add('hover');
-  //   }else{
-  //     e.currentTarget.classList.remove('hover');
-  //   }
-  //   }
-  // );
-
-  if(photo == 'jeju'){
-    photo_result = JSON.stringify(photoData.jeju);
-  } else if(photo == 'memory'){
-    photo_result = JSON.stringify(photoData.memory);
-  } else if (photo == 'street'){
-    photo_result = JSON.stringify(photoData.street);
-  }else if (photo == 'sky'){
-    photo_result = JSON.stringify(photoData.sky);
-  }else if (photo == 'store'){
-    photo_result = JSON.stringify(photoData.store);
-  }else if (photo == 'japan'){
-    photo_result = JSON.stringify(photoData.japan);
-  }
-  
-  photo_result = JSON.parse(photo_result);
-
-  if(i > 2){
-    add = 'add'
-  }else{
-    add = ''
-  }
-
-  return(
-    <div className={'main-pictures ' + add} ><img src={require('./img/'+photo_result[i].img)} /></div>
+  return (  
+    <>
+      {
+        cate.map(function(a, i) {   
+            return(
+            <div className={'main-pictures'} >
+              <img src= { require( './img/' + photo_result[i].img ) } />
+            </div>
+            )
+        })
+      }
+    </>
   )
-
 }
 
 
