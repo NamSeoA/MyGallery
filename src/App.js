@@ -16,8 +16,8 @@ function App() {
 
   let navigate = useNavigate(); // <Link>
 
-  const [ready, setReady] = useState(true);
-  const [photo, setPhoto] = useState('jeju'); // 메인2 카테고리에 알맞는 사진
+  const [ready, setReady] = useState(true);   // 랜딩페이지
+  const [photo, setPhoto] = useState('jeju'); // 현재 카테고리 저장
 
   let cate = Object.keys(photoData); // 사진 카테고리
 
@@ -129,7 +129,7 @@ const ViewPhotoContainer = ({photo, cate}) => {
         cate.map(function(a, i) {   
             return(
             <div className={'main-pictures'} >
-              <img src= { require( './img/' + photo_result[i].img ) } />
+              <img src={require('./img/' + photo_result[i].img)} />
             </div>
             )
         })
