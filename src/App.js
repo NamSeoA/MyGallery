@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState, useEffect } from 'react';
-import { Routes, Route, json, useNavigate } from 'react-router-dom';
+import { useState, useEffect, Suspense, lazy } from 'react';
+import { Routes, Route, json, useNavigate, Link, NavLink } from 'react-router-dom';
 import Nav from './component/Nav';
 import Loading from './component/Loading';
 import ScrollOut from "scroll-out";
@@ -11,6 +11,8 @@ import About from './component/About';
 import Photos from './component/Photos';
 import Seen from './component/Seen';
 import Footer from './component/Footer';
+import axios from 'axios';
+import ScrollTop from './component/ScrollTop';
 
 function App() {
 
@@ -20,6 +22,7 @@ function App() {
   const [photo, setPhoto] = useState('jeju'); // 현재 카테고리 저장
 
   let cate = Object.keys(photoData); // 사진 카테고리
+  const ViewPhoto = lazy(() => import('./component/ViewPhoto.js'));  
 
   const clickHandler = (name) => {
     setPhoto(name);
@@ -37,6 +40,13 @@ function App() {
     /* options */
   });
 
+
+// const getGroupList = async () => {
+//   await axios
+//     .get('/photo.json')
+//     .then((res) => console.log("res : " + res.data.jeju));
+// };
+
   return (
     <>
     { ready && <Loading></Loading> }
@@ -45,6 +55,7 @@ function App() {
 
     {/* <Routes></Routes> // 라우트 적용하기 !! */}
      {/* * 경로는 이 외의 모든 경로를 의미 -> 404 페이지도 만들기 */}
+    <ScrollTop />
     <Routes>
       <Route path='/' element={
         <>
@@ -68,27 +79,25 @@ function App() {
         <div className='main-content01'>
           {/* 카테고리 */}
           <div className='main-content01-cate'>
-            {cate.map(function(a, i){
-              return (<div className='main-cate'> <div key={a} onClick={()=>{clickHandler(a)}}>{a}</div> {photo == a ? <div className='main-cate-active'></div>  : ''} </div> )
-            })}  
+            {
+            cate.map(function(a, i){
+              return (<div className='main-cate'> <div key={i} onClick={()=>{clickHandler(a)}}>{a}</div> {photo == a ? <div className='main-cate-active'></div>  : ''} </div> )
+            })
+            }  
           </div>
 
           {/* 사진 */}
           <div className='main-content01-pic'>
-
-            {/* {
-              cate.map(function(a, i){
-                return <Viewphoto photo={photo} cate={cate} i={i} key={i} />
-              })
-            } */}
-
-            <ViewPhotoContainer photo={photo} cate={cate} />
-
+          <Suspense fallback={<div></div>}>
+            <ViewPhoto photo={photo} cate={cate} photoData={photoData}/>
+          </Suspense>
           </div>
 
           {/* 더보기 */}
           <div className='main-content01-more'>
-            <div>see more</div>
+            <NavLink to="/photos">
+            <img className='btn_seemore' src={require('./img/seemore-btn.png')} alt="더보기"/>
+            </NavLink>
           </div>
         </div>
         {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 1">
@@ -116,26 +125,6 @@ function App() {
 
     </>
   );
-}
-
-
-const ViewPhotoContainer = ({photo, cate}) => {
-
-  const photo_result = photoData[`${photo}`];
-
-  return (  
-    <>
-      {
-        cate.map(function(a, i) {   
-            return(
-            <div className={'main-pictures'} >
-              <img src={require('./img/' + photo_result[i].img)} />
-            </div>
-            )
-        })
-      }
-    </>
-  )
 }
 
 export default App;

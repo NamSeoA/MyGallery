@@ -6,10 +6,8 @@ function Nav(){
     <div className='nav'>
       <div className='nav-center'>
       {/* 제목 */}
-      <div className='nav-title'>
-        <Link to="/">
+      <div className='nav-title' onClick={()=>{ window.location.replace("/") }}>
         <img src={require('../img/logo.png')} />
-        </Link>
       </div >
       {/* 메뉴 */}
       <ul className='nav-menu'>
