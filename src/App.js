@@ -138,5 +138,4 @@ const ViewPhotoContainer = ({photo, cate}) => {
   )
 }
 
-
 export default App;

@@ -8,40 +8,9 @@ function Photos({cate}){
     let listImg = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     let photoAll = [];
     let data;
-    
-    const [last, setLast] = useState(0);
 
-   let test = Object.values(photoData);
-   const [photoList, setPhotoList] = useState(JSON.stringify(test[0]));
-
-   console.log(JSON.stringify(test[1]));
-    // console.log("test[0] stringfy : " + JSON.stringify(test[0]));
-   
-
-
-    // 전체 사진 배열에 담음
-    for(let i=0; i<num.length; i++){
-
-        if(cate[i] == 'jeju'){
-            data = JSON.stringify(photoData.jeju);
-        } else if(cate[i]  == 'memory'){
-            data = JSON.stringify(photoData.memory);
-        } else if (cate[i]  == 'street'){
-            data = JSON.stringify(photoData.street);
-        }else if (cate[i]  == 'sky'){
-            data = JSON.stringify(photoData.sky);
-        }else if (cate[i]  == 'store'){
-            data = JSON.stringify(photoData.store);
-        }else if (cate[i]  == 'japan'){
-            data = JSON.stringify(photoData.japan);
-        }
-
-        data = JSON.parse(data);
-    
-        for(let j=0; j<num[i]; j++){
-            photoAll = [...photoAll, data[j].img];
-        }        
-    }
+    const [count, setCount] = useState(0);
+    const [last, setLast] = useState(0); 
 
     return(
         <>
@@ -49,22 +18,13 @@ function Photos({cate}){
             <div className='photos-main-content'>
             <div className='photos-main-top'></div>
             <div className='photo-content-pic'>
-                {
-                    listImg.map(function(a, i){
-                       // photoList = a
-                        //let copy = [photoList, a];
-                        // setPhotoList(copy);
-                        // setLast(i);
-                        return(<ImageData i={i} photoAll={photoAll}/>)
-                    })
-                }
+            
+            <ImageData cate={cate} count={count} setCount={setCount}/>
+            
             </div>
             <button onClick={()=>{
                 setLast(last + 1);
 
-                // for(let i = 0; i<last; i++){
-
-                // }
             }}>더보기</button>
             </div>
         </div>
@@ -75,11 +35,25 @@ function Photos({cate}){
     )
 }
 
-function ImageData({i, photoAll}){
+const ImageData = ({i, cate, count, setCount}) => {
+
+    // 카테고리 별 제이슨 데이터
+    const photo_result = photoData[`${cate[0]}`];
+    
     return(
-        <div className='main-pictures width100'>
-            <img src={require('../img/'+photoAll[i])} />
-        </div>
+    <>
+        {
+            [1,2,3,4,5,6,7,8,9].map(function(a, i){
+                setCount(i+1);
+
+                return(
+                <div className='main-pictures width100'>
+                    <img src={require('../img/'+photo_result[i].img)} />
+                </div>
+                )
+            })
+        }
+    </>
     )
 }
 

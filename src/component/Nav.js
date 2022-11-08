@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 function Nav(){
     let navigate = useNavigate(); // <Link>
     
@@ -7,7 +7,9 @@ function Nav(){
       <div className='nav-center'>
       {/* 제목 */}
       <div className='nav-title'>
+        <Link to="/">
         <img src={require('../img/logo.png')} />
+        </Link>
       </div >
       {/* 메뉴 */}
       <ul className='nav-menu'>
