@@ -4,37 +4,37 @@
              "idx":0,
              "name":"바다에 비친 나",
              "date":"2020/07/26",
-             "img":"J_1.JPG"
+             "img":"J_1.jpg"
          },
          { 
              "idx" : 1,
              "title" : "제주 바다",
              "date" : "2020/07/26",
-             "img" : "J_2.JPG"
+             "img" : "J_2.jpg"
          },
          { 
              "idx":2,
              "title":"제주 바다",
              "date":"2020/07/26",
-             "img":"J_3.JPG"
+             "img":"J_3.jpg"
          },
          { 
              "idx":3,
              "title":"제주 시장",
              "date":"2020/07/27",
-             "img":"J_4.JPG"
+             "img":"J_4.jpg"
          },
          { 
              "idx":4,
              "title":"제주 바다",
              "date":"2020/07/25",
-             "img":"J_5.JPG"
+             "img":"J_5.jpg"
          },
          { 
              "idx":5,
              "title":"넓은 초원",
              "date":"2020/07/25",
-             "img":"J_6.JPG"
+             "img":"J_6.jpg"
          },
          { 
              "idx":6,
@@ -96,19 +96,19 @@
             "idx":15,
             "title":"LP바에서 발견한 검정치마 앨범",
             "date":"2021/10/10",
-            "img":"M_1.JPG"
+            "img":"M_1.jpg"
         },
         {
             "idx":16,
             "title":"망원 한강에서",
             "date":"2021/11/28",
-            "img":"M_2.JPG"
+            "img":"M_2.jpg"
         },
         {
             "idx":17,
             "title":"쿠사마 야요이 - 호박",
             "date":"2022/02/15",
-            "img":"M_3.JPG"
+            "img":"M_3.jpg"
         },
         {
             "idx":18,
@@ -120,13 +120,13 @@
             "idx":19,
             "title":"세부 어느 산에서",
             "date":"2019/08/10",
-            "img":"M_5.JPG"
+            "img":"M_5.jpg"
         },
         {
             "idx":20,
             "title":"청음실",
             "date":"2022/08/10",
-            "img":"M_6.JPG"
+            "img":"M_6.jpg"
         },
         {
             "idx":21,
@@ -164,13 +164,13 @@
             "idx":60,
             "title":"한강에서",
             "date":"2020/10/21",
-            "img":"STR_1.JPG"     
+            "img":"STR_1.jpg"     
         },
         {
             "idx":61,
             "title":"한강에서",
             "date":"2020/10/29",
-            "img":"STR_2.JPG"     
+            "img":"STR_2.jpg"     
         },
         {
             "idx":62,
@@ -194,7 +194,7 @@
             "idx":65,
             "title":"서촌",
             "date":"2020/10/21",
-            "img":"STR_6.JPG"     
+            "img":"STR_6.jpg"     
         },
         {
             "idx":66,
@@ -214,7 +214,7 @@
             "idx":26,
             "title":"양재천에서",
             "date":"2021/10/23",
-            "img":"S_1.JPG"
+            "img":"S_1.jpg"
         },
         {
             "idx":27,
@@ -226,25 +226,25 @@
             "idx":28,
             "title":"크리스마스 날",
             "date":"2021/12/25",
-            "img":"S_3.JPG"
+            "img":"S_3.jpg"
         },
         {
             "idx":29,
             "title":"하늘하늘",
             "date":"2020/08/25",
-            "img":"S_4.JPG"
+            "img":"S_4.jpg"
         },
         {
             "idx":30,
             "title":"저녁 노을",
             "date":"2020/09/28",
-            "img":"S_5.JPG"
+            "img":"S_5.jpg"
         },
         {
             "idx":31,
             "title":"저녁 노을",
             "date":"2020/12/14",
-            "img":"S_6.JPG"
+            "img":"S_6.jpg"
         },
         {
             "idx":32,
@@ -330,31 +330,31 @@
             "idx":45,
             "title":"코브라파스타",
             "date":"2022/01/11",
-            "img":"ST_2.JPG"
+            "img":"ST_2.jpg"
         },
         {
             "idx":46,
             "title":"LP 바",
             "date":"2021/10/18",
-            "img":"ST_3.JPG"
+            "img":"ST_3.jpg"
         },
         {
             "idx":47,
             "title":"Ofr",
             "date":"2021/10/18",
-            "img":"ST_4.JPG"
+            "img":"ST_4.jpg"
         },
         {
             "idx":48,
             "title":"서촌 카페",
             "date":"2021/10/18",
-            "img":"ST_5.JPG"
+            "img":"ST_5.jpg"
         },
         {
             "idx":49,
             "title":"일본 잡지",
             "date":"2022/01/15",
-            "img":"ST_6.JPG"
+            "img":"ST_6.jpg"
         },
         {
             "idx":50,

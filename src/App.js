@@ -1,59 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState, useEffect, Suspense, lazy } from 'react';
-import { Routes, Route, json, useNavigate, Link, NavLink } from 'react-router-dom';
+import './App.scss';
+import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Nav from './component/Nav';
 import Loading from './component/Loading';
 import ScrollOut from "scroll-out";
 import photoData from './photo';
-import styled from 'styled-components';
 import About from './component/About';
-import Photos from './component/Photos';
 import Seen from './component/Seen';
 import Footer from './component/Footer';
-import axios from 'axios';
+import ViewPhoto from './component/ViewPhoto';
 import ScrollTop from './component/ScrollTop';
+import axios from "axios";
 
 function App() {
+  const [ready, setReady] = useState(false);   // 랜딩페이지
 
-  let navigate = useNavigate(); // <Link>
+  const [data, setData] = useState(photoData);                // 데이터
+  const [list, setList] = useState(Object.keys(photoData));   // 전체 카테고리 리스트
+  const [category, setCategory] = useState('jeju');           // 현재 카테고리
 
-  const [ready, setReady] = useState(true);   // 랜딩페이지
-  const [photo, setPhoto] = useState('jeju'); // 현재 카테고리 저장
+  const clickHandler = (name) => setCategory(name);
 
-  let cate = Object.keys(photoData); // 사진 카테고리
-  const ViewPhoto = lazy(() => import('./component/ViewPhoto.js'));  
+  // photo.json 파일을 받아오면 data 와 list 값을 변경해 준다.
+  useEffect (() => {
+    const getGroupList = async () => {
+      await axios
+        .get('/photo.json')
+        .then((res) => {
+          setData(res.data)
+          setList(Object.keys(res.data))
+        })
+    };
 
-  const clickHandler = (name) => {
-    setPhoto(name);
-  }
+    getGroupList();
+  },[]);
 
   useEffect(()=>{
-
     setTimeout(() => {
       setReady(false);
-  }, 3000);
-
-  }, [])
+      }, 3000);
+  }, []);
 
   ScrollOut({
     /* options */
   });
 
-
-// const getGroupList = async () => {
-//   await axios
-//     .get('/photo.json')
-//     .then((res) => console.log("res : " + res.data.jeju));
-// };
-
   return (
     <>
-    { ready && <Loading></Loading> }
+    { ready && <Loading /> }
 
     <Nav />
 
-    {/* <Routes></Routes> // 라우트 적용하기 !! */}
      {/* * 경로는 이 외의 모든 경로를 의미 -> 404 페이지도 만들기 */}
     <ScrollTop />
     <Routes>
@@ -76,30 +73,32 @@ function App() {
 
         {/* middle */}
         <div className='main-block-middle' data-scroll>
-        <div className='main-content01'>
-          {/* 카테고리 */}
-          <div className='main-content01-cate'>
-            {
-            cate.map(function(a, i){
-              return (<div className='main-cate'> <div key={i} onClick={()=>{clickHandler(a)}}>{a}</div> {photo == a ? <div className='main-cate-active'></div>  : ''} </div> )
-            })
-            }  
+          <div className='main-content01'>
+            {/* 카테고리 */}
+            <div className='main-content01-cate'>
+              {
+                list.map((cate, i) => {
+                  return (
+                    <div className='main-cate' key={i}>
+                      <p onClick={()=>{ clickHandler(cate) }}>
+                        {cate.toUpperCase()}
+                      </p>
+                      {/* {category == cate ? <div className='main-cate-active' /> : ''} */}
+                    </div>
+                  )
+                })
+              }
+            </div>
+            {/* 사진 */}
+            <div className='main-view-photo-container'>
+              {
+                <ViewPhoto
+                  category={category}
+                  list={list}
+                />
+              }
+            </div>
           </div>
-
-          {/* 사진 */}
-          <div className='main-content01-pic'>
-          <Suspense fallback={<div></div>}>
-            <ViewPhoto photo={photo} cate={cate} photoData={photoData}/>
-          </Suspense>
-          </div>
-
-          {/* 더보기 */}
-          <div className='main-content01-more'>
-            <NavLink to="/photos">
-            <img className='btn_seemore' src={require('./img/seemore-btn.png')} alt="더보기"/>
-            </NavLink>
-          </div>
-        </div>
         {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 1">
               <path d="M13.38,33.31h47" transform='translate(-13.38 -32.81)'></path> </svg>
         </svg> */}
@@ -107,11 +106,8 @@ function App() {
 
         {/* bottom */}
         <div className='main-block' data-scroll>
-        <div className='main-content01'>
-
+          <div className='main-content01' />
         </div>
-        </div>
-
 
         {/* footer */}
         <Footer></Footer>
@@ -119,7 +115,7 @@ function App() {
         </>
       } />
       <Route path='/about' element={<About/>} />
-      <Route path='/photos' element={<Photos cate={cate}/>} />
+      {/*<Route path='/photos' element={<Photos cate={data}/>} />*/}
       <Route path='/seen' element={<Seen/>} />
     </Routes>
 
