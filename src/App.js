@@ -4,13 +4,15 @@ import { Routes, Route } from 'react-router-dom';
 import Nav from './component/Nav';
 import Loading from './component/Loading';
 import ScrollOut from "scroll-out";
-import photoData from './photo';
+import photoData from './photo.json';
 import About from './component/About';
 import Seen from './component/Seen';
+import Photos from './component/Photos';
 import Footer from './component/Footer';
 import ViewPhoto from './component/ViewPhoto';
 import ScrollTop from './component/ScrollTop';
 import axios from "axios";
+import Category from './component/Category';
 
 function App() {
   const [ready, setReady] = useState(false);   // 랜딩페이지
@@ -21,11 +23,11 @@ function App() {
 
   const clickHandler = (name) => setCategory(name);
 
-  // photo.json 파일을 받아오면 data 와 list 값을 변경해 준다.
+  //photo.json 파일을 받아오면 data 와 list 값을 변경해 준다.
   useEffect (() => {
     const getGroupList = async () => {
       await axios
-        .get('/photo.json')
+        .get('./photo.json')
         .then((res) => {
           setData(res.data)
           setList(Object.keys(res.data))
@@ -74,21 +76,11 @@ function App() {
         {/* middle */}
         <div className='main-block-middle' data-scroll>
           <div className='main-content01'>
+            
             {/* 카테고리 */}
-            <div className='main-content01-cate'>
-              {
-                list.map((cate, i) => {
-                  return (
-                    <div className='main-cate' key={i}>
-                      <p onClick={()=>{ clickHandler(cate) }}>
-                        {cate.toUpperCase()}
-                      </p>
-                      {/* {category == cate ? <div className='main-cate-active' /> : ''} */}
-                    </div>
-                  )
-                })
-              }
-            </div>
+
+            <Category list={list} clickHandler={clickHandler} />
+   
             {/* 사진 */}
             <div className='main-view-photo-container'>
               {
@@ -115,7 +107,7 @@ function App() {
         </>
       } />
       <Route path='/about' element={<About/>} />
-      {/*<Route path='/photos' element={<Photos cate={data}/>} />*/}
+      <Route path='/photos' element={<Photos cateList={list}/>} />
       <Route path='/seen' element={<Seen/>} />
     </Routes>
 

@@ -1,554 +1,576 @@
-{
-    "jeju" : [
+[
         { 
              "idx":0,
+             "category": "jeju",
              "name":"바다에 비친 나",
              "date":"2020/07/26",
              "img":"img1.jpg"
          },
          { 
-             "idx" : 1,
+             "idx":1,
              "title" : "제주 바다",
+             "category": "jeju",
              "date" : "2020/07/26",
              "img" : "img2.jpg"
          },
          { 
              "idx":2,
              "title":"제주 바다",
+             "category": "jeju",
              "date":"2020/07/26",
              "img":"img3.jpg"
          },
          { 
              "idx":3,
              "title":"제주 시장",
+             "category": "jeju",
              "date":"2020/07/27",
              "img":"img4.jpg"
          },
          { 
              "idx":4,
              "title":"제주 바다",
+             "category": "jeju",
              "date":"2020/07/25",
              "img":"img5.jpg"
          },
          { 
              "idx":5,
              "title":"넓은 초원",
+             "category": "jeju",
              "date":"2020/07/25",
              "img":"img6.jpg"
          },
          { 
              "idx":6,
              "title":"파아란 바다",
+             "category": "jeju",
              "date":"2020/07/26",
              "img":"img7.jpg"
          },
          { 
              "idx":7,
              "title":"아시아나 기내에서",
+             "category": "jeju",
              "date":"2020/07/25",
              "img":"img8.jpg"
          },
          { 
              "idx":8,
              "title":"제주 해변가",
+             "category": "jeju",
              "date":"2020/07/26",
              "img":"img9.jpg"
          },
          { 
              "idx":9,
              "title":"바다에서",
+             "category": "jeju",
              "date":"2020/07/26",
              "img":"img10.jpg"
          },
          { 
              "idx":10,
              "title":"멀리 떨어진 섬",
+             "category": "jeju",
              "date":"2020/07/25",
              "img":"img11.jpg"
          },
          { 
              "idx":11,
              "title":"저녁 바다",
+             "category": "jeju",
              "date":"2020/07/26",
              "img":"img12.jpg"
          },
          { 
              "idx":12,
              "title":"저녁 바닷가",
+             "category": "jeju",
              "date":"2020/07/26",
              "img":"img13.jpg"
          },
          { 
              "idx":13,
              "title":"푸른 바다",
+             "category": "jeju",
              "date":"2020/07/26",
              "img":"img14.jpg"
          },
          { 
              "idx":14,
              "title":"숙소 가는 길에",
+             "category": "jeju",
              "date":"2020/07/27",
              "img":"img15.jpg"
-         }
-    ],
-    "memory" : [
+         },
         {
             "idx":15,
             "title":"LP바에서 발견한 검정치마 앨범",
+            "category": "memory",
             "date":"2021/10/10",
             "img":"img1.jpg"
         },
         {
             "idx":16,
             "title":"망원 한강에서",
+            "category": "memory",
             "date":"2021/11/28",
             "img":"img2.jpg"
         },
         {
             "idx":17,
             "title":"쿠사마 야요이 - 호박",
+            "category": "memory",
             "date":"2022/02/15",
             "img":"img3.jpg"
         },
         {
             "idx":18,
             "title":"인천 바다",
+            "category": "memory",
             "date":"2022/02/15",
             "img":"img4.jpg"
         },
         {
             "idx":19,
             "title":"세부 어느 산에서",
+            "category": "memory",
             "date":"2019/08/10",
             "img":"img5.jpg"
         },
         {
             "idx":20,
             "title":"청음실",
+            "category": "memory",
             "date":"2022/08/10",
             "img":"img6.jpg"
         },
         {
             "idx":21,
             "title":"생일 파티 with 소연,나미",
+            "category": "memory",
             "date":"2020/10/30",
             "img":"img7.jpg"
         },
         {
             "idx":22,
             "title":"나미랑 눈사람 만든 날",
+            "category": "memory",
             "date":"2020/12/10",
             "img":"img8.jpg"
         },
         {
             "idx":23,
             "title":"사울레이터 전시회",
+            "category": "memory",
             "date":"2022/02/14",
             "img":"img9.jpg"
         },
         {
             "idx":24,
             "title":"귀여븐 로니",
+            "category": "memory",
             "date":"2022/05/16",
             "img":"img10.jpg"
         },
         {
             "idx":25,
             "title":"피마원 전시회",
+            "category": "memory",
             "date":"2019/11/23",
             "img":"img11.jpg"
         },
         {
             "idx":26,
-            "title":"사울레이터 전시",
-            "date":"2022/02/05",
-            "img":"img12.jpg"
-        },
-        {
-            "idx":27,
-            "title":"명동",
-            "date":"2021/12/23",
-            "img":"img13.jpg"
-        },
-        {
-            "idx":28,
-            "title":"서촌 온그라운드",
-            "date":"2022/10/14",
-            "img":"img14.jpg"
-        },
-        {
-            "idx":29,
-            "title":"청계천",
-            "date":"2022/09/24",
-            "img":"img15.jpg"
-        }
-    ],
-    "street" : [
-        {
-            "idx":30,
             "title":"한강에서",
+            "category": "street",
             "date":"2020/10/21",
             "img":"img1.jpg"     
         },
         {
-            "idx":31,
+            "idx":27,
             "title":"한강에서",
+            "category": "street",
             "date":"2020/10/29",
             "img":"img2.jpg"     
         },
         {
-            "idx":32,
+            "idx":28,
             "title":"종로구",
+            "category": "street",
             "date":"2021/12/21",
             "img":"img3.jpg"     
         },
         {
-            "idx":33,
+            "idx":29,
             "title":"눈 내린 날",
+            "category": "street",
             "date":"2020/12/19",
             "img":"img4.jpg"     
         },
         {
-            "idx":34,
+            "idx":30,
             "title":"북촌 한옥마을",
+            "category": "street",
             "date":"2022/03/16",
             "img":"img5.jpg"     
         },
         {
-            "idx":35,
+            "idx":31,
             "title":"서촌",
+            "category": "street",
             "date":"2020/10/21",
             "img":"img6.jpg"     
         },
         {
-            "idx":36,
-            "title":"양재천",
-            "date":"2022/09/29",
-            "img":"img7.jpg"     
+            "idx": 32,
+            "title": "양재천",
+            "category": "street",
+            "date": "2022/09/29",
+            "img": "img7.jpg"     
         },
         {
-            "idx":37,
-            "title":"하늘공원",
-            "date":"2021/10/30",
-            "img":"img8.jpg"     
+            "idx": 33,
+            "title": "하늘공원",
+            "category": "street",
+            "date": "2021/10/30",
+            "img": "img8.jpg"     
         },
         {
-            "idx":38,
-            "title":"흥인지문 공원 앞",
-            "date":"2020/07/10",
-            "img":"img9.jpg"     
-        },
-        {
-            "idx":39,
-            "title":"눈 오는 날",
-            "date":"2019/12/13",
-            "img":"img10.jpg"     
-        },
-        {
-            "idx":40,
-            "title":"양재천 벚꽃 길",
-            "date":"2022/04/14",
-            "img":"img11.jpg"
-        },
-        {
-            "idx":41,
-            "title":"은평 한옥마을",
-            "date":"2022/03/11",
-            "img":"img12.jpg"
-        },
-        {
-            "idx":42,
-            "title":"경복궁 길",
-            "date":"2020/11/03",
-            "img":"img13.jpg"
-        },
-        {
-            "idx":43,
-            "title":"신촌",
-            "date":"2020/10/11",
-            "img":"img14.jpg"
-        },
-        {
-            "idx":44,
-            "title":"영종도 가는 길",
-            "date":"2022/02/10",
-            "img":"img15.jpg"
-        }
-    ],
-    "sky" : [
-        {
-            "idx":45,
+            "idx":34,
             "title":"양재천에서",
+            "category": "sky",
             "date":"2021/10/23",
             "img":"img1.jpg"
         },
         {
-            "idx":46,
+            "idx":35,
             "title":"하늘",
+            "category": "sky",
             "date":"2021/05/03",
             "img":"img2.jpg"
         },
         {
-            "idx":47,
+            "idx":36,
             "title":"크리스마스 날",
+            "category": "sky",
             "date":"2021/12/25",
             "img":"img3.jpg"
         },
         {
-            "idx":48,
+            "idx":37,
             "title":"하늘하늘",
+            "category": "sky",
             "date":"2020/08/25",
             "img":"img4.jpg"
         },
         {
-            "idx":49,
+            "idx":38,
             "title":"저녁 노을",
+            "category": "sky",
             "date":"2020/09/28",
             "img":"img5.jpg"
         },
         {
-            "idx":50,
+            "idx":39,
             "title":"저녁 노을",
+            "category": "sky",
             "date":"2020/12/14",
             "img":"img6.jpg"
         },
         {
-            "idx":51,
+            "idx":40,
             "title":"퇴근하고 달려가서 찍은 하늘",
+            "category": "sky",
             "date":"2021/10/23",
             "img":"img7.jpg"
         },
         {
-            "idx":52,
+            "idx":41,
             "title":"세부의 새벽 하늘",
+            "category": "sky",
             "date":"2019/07/18",
             "img":"img8.jpg"
         },
         {
-            "idx":53,
+            "idx":42,
             "title":"기내안에서",
+            "category": "sky",
             "date":"2020/05/20",
             "img":"img9.jpg"
         },
         {
-            "idx":54,
+            "idx":43,
             "title":"성산대교",
+            "category": "sky",
             "date":"2021/09/11",
             "img":"img10.jpg"
         },
         {
-            "idx":55,
+            "idx":44,
             "title":"저녁 노을",
+            "category": "sky",
             "date":"2020/06/19",
             "img":"img11.jpg"
         },
         {
-            "idx":56,
+            "idx":45,
             "title":"하늘공원에서",
+            "category": "sky",
             "date":"2020/10/30",
             "img":"img12.jpg"
         },
         {
-            "idx":57,
+            "idx":46,
             "title":"세부 야경",
+            "category": "sky",
             "date":"2019/08/25",
             "img":"img13.jpg"
         },
         {
-            "idx":58,
+            "idx":47,
             "title":"노을",
+            "category": "sky",
             "date":"2020/06/19",
             "img":"img14.jpg"
         },
         {
-            "idx":59,
+            "idx":48,
             "title":"체육공원에서",
+            "category": "sky",
             "date":"2020/09/14",
             "img":"img15.jpg"
-        }
-    ],
-    "store":[
+        },
         {
-            "idx":60,
+            "idx":49,
+            "title":"공원에서",
+            "category": "sky",
+            "date":"2020/10/08",
+            "img":"img16.jpg"
+        },
+        {
+            "idx":50,
+            "title":"저녁 하늘",
+            "category": "sky",
+            "date":"2021/07/22",
+            "img":"img17.jpg"
+        },
+        {
+            "idx":51,
+            "title":"저녁 하늘",
+            "category": "sky",
+            "date":"2021/07/23",
+            "img":"img18.jpg"
+        },
+        {
+            "idx":52,
             "title":"나미랑 나베 먹으러 !",
+            "category": "store",
             "date":"2021/06/25",
             "img":"img1.jpg"
         },
         {
-            "idx":61,
+            "idx":53,
             "title":"코브라파스타",
+            "category": "store",
             "date":"2022/01/11",
             "img":"img2.jpg"
         },
         {
-            "idx":62,
+            "idx":54,
             "title":"LP 바",
+            "category": "store",
             "date":"2021/10/18",
             "img":"img3.jpg"
         },
         {
-            "idx":63,
+            "idx":55,
             "title":"Ofr",
+            "category": "store",
             "date":"2021/10/18",
             "img":"img4.jpg"
         },
         {
-            "idx":64,
+            "idx":56,
             "title":"서촌 카페",
+            "category": "store",
             "date":"2021/10/18",
             "img":"img5.jpg"
         },
         {
-            "idx":65,
+            "idx":57,
             "title":"일본 잡지",
+            "category": "store",
             "date":"2022/01/15",
             "img":"img6.jpg"
         },
         {
-            "idx":66,
+            "idx":58,
             "title":"연희동 카페",
+            "category": "store",
             "date":"2020/10/12",
             "img":"img7.jpg"
         },
         {
-            "idx":67,
+            "idx":59,
             "title":"LP 바",
+            "category": "store",
             "date":"2021/10/18",
             "img":"img8.jpg"
         },
         {
-            "idx":68,
+            "idx":60,
             "title":"책방",
+            "category": "store",
             "date":"2022/02/02",
             "img":"img9.jpg"
         },
         {
-            "idx":69,
+            "idx":61,
             "title":"LP 바",
+            "category": "store",
             "date":"2022/01/20",
             "img":"img10.jpg"
         },
         {
-            "idx":70,
+            "idx":62,
             "title":"LP 바",
+            "category": "store",
             "date":"2022/01/20",
             "img":"img11.jpg"
         },
         {
-            "idx":71,
+            "idx":63,
             "title":"Ofr",
+            "category": "store",
             "date":"2021/10/18",
             "img":"img12.jpg"
         },
         {
-            "idx":72,
+            "idx":64,
             "title":"서촌 카페",
+            "category": "store",
             "date":"2021/10/18",
             "img":"img13.jpg"
         },
         {
-            "idx":73,
+            "idx":65,
             "title":"락떼스프릿",
+            "category": "store",
             "date":"2022/03/10",
             "img":"img14.jpg"
         },
         {
-            "idx":74,
+            "idx":66,
             "title":"락떼스프릿",
+            "category": "store",
             "date":"2022/03/10",
             "img":"img15.jpg"
-        }
-    ],
-    "japan":[
+        },
         {
-            "idx":75,
+            "idx":67,
+            "title":"연희동 카페",
+            "category": "store",
+            "date":"2021/10/12",
+            "img":"img16.jpg"
+        },
+        {
+            "idx":68,
             "title":"일본 길거리",
+            "category": "japan",
             "date":"2022/10/28",
             "img":"img1.jpg"
         },
         {
-            "idx":76,
+            "idx":69,
             "title":"일본 길거리",
+            "category": "japan",
             "date":"2022/10/28",
             "img":"img2.jpg"
         },
         {
-            "idx":77,
+            "idx":70,
             "title":"행인들",
+            "category": "japan",
             "date":"2022/10/28",
             "img":"img3.jpg"
         },
         {
-            "idx":78,
+            "idx":71,
             "title":"일본 거리",
+            "category": "japan",
             "date":"2022/10/28",
             "img":"img4.jpg"
         },
         {
-            "idx":79,
+            "idx":72,
             "title":"일본 저녁",
+            "category": "japan",
             "date":"2022/10/28",
             "img":"img5.jpg"
         },
         {
-            "idx":80,
+            "idx":73,
             "title":"일본 저녁",
+            "category": "japan",
             "date":"2022/10/28",
             "img":"img6.jpg"
         },
         {
-            "idx":81,
+            "idx":74,
             "title":"일본 저녁",
+            "category": "japan",
             "date":"2022/10/28",
             "img":"img7.jpg"
         },
         {
-            "idx":82,
+            "idx":75,
             "title":"일본 길거리",
+            "category": "japan",
             "date":"2022/10/28",
             "img":"img8.jpg"
         },
         {
-            "idx":83,
+            "idx":76,
             "title":"일본",
+            "category": "japan",
             "date":"2022/10/28",
             "img":"img9.jpg"
         },
         {
-            "idx":84,
+            "idx":77,
             "title":"일본",
+            "category": "japan",
             "date":"2022/10/28",
             "img":"img10.jpg"
         },
         {
-            "idx":85,
+            "idx":78,
             "title":"일본",
+            "category": "japan",
             "date":"2022/10/28",
             "img":"img11.jpg"
         },
         {
-            "idx":86,
+            "idx":79,
             "title":"일본",
+            "category": "japan",
             "date":"2022/10/28",
             "img":"img12.jpg"
         },
         {
-            "idx":87,
+            "idx":80,
             "title":"일본",
+            "category": "japan",
             "date":"2022/10/28",
             "img":"img13.jpg"
         },
         {
-            "idx":88,
+            "idx":81,
             "title":"일본",
-            "date":"2022/10/28",
+            "category": "japan",
+            "date":"2022/10/28", 
             "img":"img14.jpg"
-        },
-        {
-            "idx":89,
-            "title":"일본",
-            "date":"2022/10/28",
-            "img":"img15.jpg"
         }
-    ]
-}
+]

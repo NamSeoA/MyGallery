@@ -1,27 +1,77 @@
-import photoData from '../photo';
 import Footer from './Footer';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-function Photos({cate}){
+import {API} from '../config'
+import Category from './Category';
 
-    let num = [15, 11, 8, 18, 16, 14];
-    let data;
+const Photos = ({cateList}) => {
+    // category : 현재 카테고리
+    // cateList : 전체 카테고리 리스트
 
-    const [count, setCount] = useState(12);
-    const [last, setLast] = useState(0); 
-    const [list, setList] = useState(['J_1.jpg', 'J_2.jpg', 'J_3.jpg', 'J_4.jpg', 'J_5.jpg', 'J_6.jpg', 'J_7.JPG', 'J_8.JPG', 'J_9.JPG', 'J_10.JPG', 'J_11.JPG', 'J_12.JPG']);
+    const [category, setCategory] = useState('jeju');   // 현재 카테고리
+    const [list, setList]         = useState([]);
+    const [count, setCount]       = useState(0);
 
-    let number = count; // 로드 된 사진 개수
-
-    let category;
-
-    let arr;
-
-    let idx;
-
-    useEffect(() => {
+    const clickHandler = (name) => setCategory(name);
+    
+    // Mount
+    useEffect(()=>{
+        getList();
         console.log("list : " + list);
-    }, [list]);
+        setCount(count + 6);
+    }, [])
+
+    // 탭 변경 시 새로고침
+    useEffect(()=>{
+
+        //setList([]);
+        //setCount(6);
+
+    }, [category])
+
+    useEffect(()=>{
+        console.log("count : " + count);
+    }, [count])
+
+    // 사진 데이터 불러오는 함수
+    const getList = (body) => {
+        axios.get(`${API.JSON}`).then((response) => {
+            const data = response.data[`${category}`];
+
+            let arr = [];   // 사진 객체 담을 배열
+            let img_data; 
+            let num = [];
+
+            if(count < 12){
+                num = [1,2,3,4,5,6];
+                
+            }else{
+                num = [1,2,3];
+            }
+
+            num.map((a, i) => {
+                if(count >= 6){
+                    i = i + count
+                }
+
+                img_data = data[i];
+                arr.push(img_data);
+
+            })
+
+            setList([...list, ...arr]);
+
+            // if (body.loadMore) {
+                
+            //     // 더보기 버튼이 클릭 됐을 시
+            //     setList([...list, ...response.data.productInfo]);
+            // } else {
+            //   setList(response.data.productInfo);
+            // }
+
+        });
+
+      };
 
     return(
         <>
@@ -29,62 +79,31 @@ function Photos({cate}){
             <div className='photos-main-content'>
             <div className='photos-main-top'></div>
             <div className='photo-content-pic'>
+
+            <Category list={cateList} clickHandler={clickHandler} />
             
-            <ImageData count={count} setCount={setCount} list={list} setList={setList}/>
+            <ImageData count={count} setCount={setCount} list={list} setList={setList} category={category}/>
             
             </div>
+            {count < 15 ? 
             <button onClick={()=>{
-                setLast(last + 1);
+                let body = {
+                    loadMore: true
+                };
                 
-                axios.get('/photo.json')
-                .then((res)=>{
+                if(count > 12){
+                    setCount(count => count + 6);
+                }else if(count == 12){
+                    setCount( count => count + 3);
+                }
 
-                    let photo_json = res.data;
-                    let test_arr = [];
 
-                    for(let i=0; i<12; i++){
-
-                        if ( number <= num[0] ) {
-                            category = cate[0];
-                            idx = (number - 1);
-                        } else if ( number <= (num[0] + num[1]) ){
-                            category = cate[1];
-                            idx = ((number-1) - num[0]);
-                        } else if ( number <= (num[0]+num[1]+num[2]) ){
-                            category = cate[2];
-                            idx = ((number-1) - (num[0]+num[1]));
-                        } else if ( number <= (num[0]+num[1]+num[2]+num[3]) ){
-                            category = cate[3];
-                            idx = ((number-1) - (num[0]+num[1]+num[2]));
-                        } else if ( number <= (num[0]+num[1]+num[2]+num[3]+num[4]) ){
-                            category = cate[4];
-                            idx = ((number-1) - (num[0]+num[1]+num[2]+num[3]));
-                        } else if ( number <= (num[0]+num[1]+num[2]+num[3]+num[4]+num[5]) ){
-                            category = cate[5];
-                            idx = ((number-1) - (num[0]+num[1]+num[2]+num[3]+num[4]));
-                        } else if ( number > (num[0]+num[1]+num[2]+num[3]+num[4]+num[5]) ){
-                            category = "none";
-                        }
-
-                        if(category != "none"){
-                            arr = photo_json[`${category}`][`${idx}`].img;
-                            test_arr.push(arr);
-                        }
-                        
-                        number = number + 1; // 로드 된 사진 개수
-
-                    }
-
-                    console.log("test_arr : " + test_arr);
-                    setList([...list, ...test_arr]);
-                    
-                    test_arr = [];
-
-                })
+                getList(body);
             
             }}>
                 <img className='btn_seemore' src={require('../img/seemore-btn.png')} alt="더보기" />
             </button>
+            : '' }
             </div>
         </div>
 
@@ -94,38 +113,22 @@ function Photos({cate}){
     )
 }
 
-const ImageData = ({count, setCount, list, setList}) => {
-    
-    // useEffect(() => {
-    //     // let copy;
-
-    //     const result = photoData[`${cate[0]}`];
-    //     let copy = [];
-
-    //     for(let i=0; i<12; i++){
-    //         console.log("i : " + i);
-    //         console.log("result[i].img : " + result[i].img);
-    //         copy.push(result[i].img);
-    //     }
-    //     setList(copy);
-    // }, []);
-
-    // const photo_result = photoData[`${cate[0]}`];
+const ImageData = ({list, setList, category}) => {
 
     return(
-    <>
+        <>
         {
-            [1,2,3,4,5,6,7,8,9,10,11,12].map(function(a, i){
-                setCount(i+1);
+            list.map(function(a, i){
+                const url = `${API.IMAGE}/${category}/${list[i].img}`;
 
                 return(
-                <div className='main-pictures width100'>
-                    <img src={require('../img/'+list[i])} alt="사진" />
+                <div className='main-pictures width100' key={i}>
+                    <img src={url} alt="image" />
                 </div>
                 )
             })
         }
-    </>
+        </>
     )
 }
 
