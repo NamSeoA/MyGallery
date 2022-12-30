@@ -10,9 +10,7 @@ const Photos = ({cateList}) => {
 
     const [category, setCategory] = useState('jeju');   // 현재 카테고리
     const [list, setList]         = useState([]);
-    // const [count, setCount]       = useState(0);    // 현재 개수
-    let count = 0;   // 현재 개수
-    let more = 0;    // 더보기
+    const [count, setCount]       = useState(0);
 
     const clickHandler = (name) => setCategory(name);
     
@@ -20,43 +18,50 @@ const Photos = ({cateList}) => {
     useEffect(()=>{
         getList();
         console.log("list : " + list);
-        count += 6;
+        setCount(count + 6);
     }, [])
 
+    // 탭 변경 시 새로고침
     // useEffect(()=>{
-    //     console.log("count useEffect : " + count);
-    // }, [count])
+    //     // setCount(6);
+    //     // setList([]);
+    //     //console.log("count(category) : " + count, "list(category) : " + list);
+    // }, [category])
 
     useEffect(()=>{
-        more = 0;
-    }, [category])
+        console.log("count useEffect : " + count);
+    }, [count])
 
     // 사진 데이터 불러오는 함수
     const getList = (body) => {
-
-        let url;
-
-        switch(more){
-            case 0 :
-             url = 'test0.json';
-             break;
-            case 1 :
-             url = 'test1.json';
-             break;
-            case 2 : 
-             url = 'test2.json';
-             break;
-            default :
-              url = 'test2.json';
-              break;
-        }
-
-        axios.get(`${API.PHOTOJSON}/${url}`).then((response) => {
+        axios.get(`${API.JSON}`).then((response) => {
             const data = response.data[`${category}`];
-            console.log("axios arr : " + data);
 
-            setList([...list, ...data]);
+            let arr = [];   // 사진 객체 담을 배열
+            let img_data; 
+            let num = [];
+
+            if(count < 12){
+                num = [1,2,3,4,5,6];
+                
+            }else{
+                num = [1,2,3];
+            }
+
+            num.map((a, i) => {
+                if(count >= 6){
+                    i = i + count
+                }
+
+                img_data = data[i];
+                arr.push(img_data);
+
+            })
+
+            setList([...list, ...arr]);
+
         });
+
       };
 
     return(
@@ -68,25 +73,20 @@ const Photos = ({cateList}) => {
 
             <Category list={cateList} clickHandler={clickHandler} />
             
-            <ImageData list={list} setList={setList} category={category}/>
+            <ImageData count={count} setCount={setCount} list={list} setList={setList} category={category}/>
             
             </div>
             {count < 15 ? 
             <button onClick={()=>{
-               
-                more += 1;
-                console.log("more : " + more);
-
                 let body = {
                     loadMore: true
                 };
                 
-                if(more == 1){
-                    count += 6;
-                }else if(more == 2){
-                    count += 3;
+                if(count > 12){
+                    setCount(count => count + 6);
+                }else if(count == 12){
+                    setCount( count => count + 3);
                 }
-                console.log("count : " + count);
 
                 getList(body);
             

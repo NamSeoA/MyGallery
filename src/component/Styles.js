@@ -18,3 +18,14 @@ export const LoadingText = styled.div`
   font: 1rem 'Noto Sans KR';
   text-align: center;
 `;
+
+// export const Pic = styled.div`
+// width:90%;
+// height: 100%;
+// `;
+
+// export const Picimg = styled.img`
+// width:100%;
+// height: 100%;
+// border-radius:10px;
+// `;

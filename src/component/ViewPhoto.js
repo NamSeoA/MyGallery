@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 // import ImgLoading from "./ImgLoading";
 import {API} from "../config";
 import {NavLink} from "react-router-dom";
+// import { Pic, Picimg } from './Styles';
 
 const ViewPhoto = (props) => {
   // category -> 현재 카테고리
@@ -19,6 +20,7 @@ const ViewPhoto = (props) => {
       }
     });
   }
+  
 
   useEffect(() => {
     imagePreload(list);
@@ -48,6 +50,10 @@ const ViewPhoto = (props) => {
             list.map((cate, i) => {
               const url = `${API.IMAGE}/${category}/img${i+1}.jpg`
               return (
+                // styled component test
+                // <Pic key={i}>
+                //   <Picimg src={url} />
+                // </Pic>
                 <div className='main-pictures' key={i}>
                   <img src={url} alt='image' />
                 </div>
